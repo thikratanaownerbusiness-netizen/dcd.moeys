@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Kantumruy+Pro:wght@300;400;500;600;700;800;900&family=Moul&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Kantumruy Pro", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-moul: "Moul", "Khmer", serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #f1f5f9; /* slate-100 */
+}
+
+/* Liquid Glass Custom Classes */
+.liquid-bg-mesh {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  overflow: hidden;
+  pointer-events: none;
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+}
+
+.dark .liquid-bg-mesh {
+  background: linear-gradient(135deg, #090d16 0%, #0f172a 100%);
+}
+
+.liquid-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(110px);
+  opacity: 0.25;
+  mix-blend-mode: multiply;
+  animation: floatBlob 25s infinite alternate ease-in-out;
+}
+
+.dark .liquid-blob {
+  opacity: 0.15;
+  mix-blend-mode: screen;
+}
+
+.liquid-blob-1 {
+  top: -10%;
+  left: 20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #3b82f6 0%, #60a5fa 100%);
+}
+
+.liquid-blob-2 {
+  bottom: -15%;
+  right: 15%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, #8b5cf6 0%, #a78bfa 100%);
+  animation-delay: -5s;
+}
+
+.liquid-blob-3 {
+  top: 40%;
+  left: -5%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #06b6d4 0%, #22d3ee 100%);
+  animation-delay: -10s;
+}
+
+@keyframes floatBlob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  50% { transform: translate(40px, -60px) scale(1.15); }
+  100% { transform: translate(-30px, 50px) scale(0.9); }
+}
+
+/* Pristine Liquid Glass Panels */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 
+    0 4px 30px rgba(0, 0, 0, 0.02),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8);
+}
+
+.dark .liquid-glass {
+  background: rgba(13, 20, 35, 0.88);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 4px 30px rgba(0, 0, 0, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.04);
+}
+
+/* Header/Floating glass specifically */
+.liquid-glass-header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01);
+}
+
+.dark .liquid-glass-header {
+  background: rgba(13, 20, 35, 0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Sidebar liquid glass style */
+.liquid-glass-sidebar {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* Beautiful Glossy Buttons */
+.liquid-btn-primary {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 4px 15px rgba(37, 99, 235, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.liquid-btn-primary:hover {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  transform: translateY(-1.5px);
+  box-shadow: 
+    0 6px 20px rgba(37, 99, 235, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.liquid-btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Animations support */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Custom Webkit scrollbar for a polished feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Custom highly-legible text contrast enhancements for Light & Dark mode */
+.text-slate-300 {
+  color: #64748b !important; /* slate-500 in light mode */
+}
+.dark .text-slate-300 {
+  color: #cbd5e1 !important; /* slate-300 in dark mode */
+}
+
+.text-slate-400 {
+  color: #4a5568 !important; /* slate-600 equivalent - highly visible for auxiliary text */
+}
+.dark .text-slate-400 {
+  color: #a0aec0 !important; /* light gray/slate - very legible in dark mode */
+}
+
+.text-slate-450 {
+  color: #434e61 !important;
+}
+.dark .text-slate-450 {
+  color: #cbd5e1 !important;
+}
+
+.text-slate-500 {
+  color: #2d3748 !important; /* slate-800 equivalent - highly readable body/label text */
+}
+.dark .text-slate-500 {
+  color: #e2e8f0 !important; /* slate-200 equivalent - extremely bright and readable */
+}
+
+.text-slate-550 {
+  color: #242f3e !important;
+}
+.dark .text-slate-550 {
+  color: #e2e8f0 !important;
+}
+
+.text-slate-600 {
+  color: #1a202c !important; /* almost black - maximum contrast for main text */
+}
+.dark .text-slate-600 {
+  color: #f7fafc !important; /* slate-50 equivalent */
+}
+
+.text-slate-650 {
+  color: #1a202c !important;
+}
+.dark .text-slate-650 {
+  color: #ffffff !important;
+}
+
+.text-slate-700 {
+  color: #111827 !important; /* high contrast charcoal/black */
+}
+.dark .text-slate-700 {
+  color: #f9fafb !important; /* high contrast white */
+}
+
+.text-slate-800 {
+  color: #030712 !important; /* deepest black */
+}
+.dark .text-slate-800 {
+  color: #ffffff !important; /* pure white */
+}
+
+.text-slate-900 {
+  color: #000000 !important; /* absolute black */
+}
+.dark .text-slate-900 {
+  color: #ffffff !important; /* absolute white */
+}
+
+/* Ensure text in the sidebar (which is always dark) remains bright and highly legible in both modes */
+.liquid-glass-sidebar .text-slate-300 {
+  color: #cbd5e1 !important;
+}
+.liquid-glass-sidebar .text-slate-400 {
+  color: #cbd5e1 !important;
+}
+.liquid-glass-sidebar .text-slate-450 {
+  color: #e2e8f0 !important;
+}
+.liquid-glass-sidebar .text-slate-500 {
+  color: #e2e8f0 !important;
+}
+.liquid-glass-sidebar .text-slate-550 {
+  color: #f1f5f9 !important;
+}
+.liquid-glass-sidebar .text-slate-600 {
+  color: #ffffff !important;
+}
+.liquid-glass-sidebar .text-slate-650 {
+  color: #ffffff !important;
+}
+.liquid-glass-sidebar .text-slate-750 {
+  color: #ffffff !important;
+}
+
+
